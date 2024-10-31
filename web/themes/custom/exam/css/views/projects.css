@@ -35,3 +35,51 @@
   padding-top: 69px;
   background: repeating-linear-gradient(135deg, #cccccc, #cccccc 2px, #fff 2px, #fff 8px);
 }
+.block-views-blockprojects-block-1 .view-projects .view-content {
+  margin-bottom: 46px;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row {
+  background-color: #fff;
+  border-bottom: solid #373645 1px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row .views-field-title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 29px;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row .views-field-title a {
+  text-decoration: none;
+  color: #373645;
+  font-family: "Avenir";
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row .views-field-field-project-type {
+  width: 100%;
+  text-align: center;
+  font-family: "Open sans";
+  margin-top: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15.3px;
+  padding-right: 6px;
+  word-spacing: 3px;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row .views-field-view-node {
+  text-align: center;
+  margin-top: 20px;
+  padding-right: 4px;
+  margin-bottom: 17px;
+}
+.block-views-blockprojects-block-1 .view-projects .views-row .views-field-view-node a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Open sans";
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 5px 9px;
+  background-color: #373645;
+}

@@ -1,0 +1,19 @@
+@import "../partials";
+
+.project-type {
+  &--web-dewelopment {
+    color: $web-color
+  }
+
+  &--php-development {
+    color: $php-color;
+  }
+
+  &--app-development {
+    color: $app-color;
+  }
+
+  &--drupal-project {
+    color: $drupal-color;
+  }
+}

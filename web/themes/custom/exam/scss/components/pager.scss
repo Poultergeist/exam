@@ -1,0 +1,38 @@
+@import "../partials";
+
+.pager {
+  .pager__items {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
+    .pager__item {
+      font-size: 14px;
+      font-family: "Inter";
+      width: 30px;
+      height: 30px;
+      padding: 6.8px 10.5px;
+      margin: 0px 2px;
+
+      a {
+        color: $gray;
+        text-decoration: none;
+      }
+
+      &--first,
+      &--previous,
+      &--next,
+      &--last {
+        font-family: "Nexa";
+        font-size: 23px;
+        letter-spacing: -5px;
+        padding: 4px 11px;
+      }
+
+      &.is-active {
+        border-radius: 50%;
+        background-color: $middle-gray;
+      }
+    }
+  }
+}

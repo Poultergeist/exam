@@ -1,12 +1,12 @@
 @import "../partials";
 
 .node--type-project {
-    &.node--view-mode-teaser {
-      .field--name-field-project-image {
-        img {
-          width: 100%;
-          height: auto;
-        }
+  &.node--view-mode-teaser {
+    .field--name-field-project-image {
+      img {
+        width: 100%;
+        height: auto;
       }
     }
+  }
 }

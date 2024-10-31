@@ -41,17 +41,65 @@
   .view-projects {
     padding-top: 69px;
     background: repeating-linear-gradient(135deg,
-        /* Diagonal angle */
         $middle-gray,
-        /* Stripe color */
         $middle-gray 2px,
-        /* Stripe width */
         $white 2px,
-        /* Gap color */
         $white 8px
-        /* Gap width */
       );
 
+    .view-content {
+      margin-bottom: 46px;
+    }
 
+    .views-row {
+      background-color: $white;
+      border-bottom: solid $gray 1px;
+      border-radius: 2px;
+      overflow: hidden;
+
+      .views-field-title {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-top: 29px;
+
+        a {
+          text-decoration: none;
+          color: $gray;
+          font-family: "Avenir";
+          text-transform: uppercase;
+          font-size: 24px;
+        }
+      }
+
+      .views-field-field-project-type {
+        width: 100%;
+        text-align: center;
+        font-family: "Open sans";
+        margin-top: 3px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 15.3px;
+        padding-right: 6px;
+        word-spacing: 3px;
+      }
+
+      .views-field-view-node {
+        text-align: center;
+        margin-top: 20px;
+        padding-right: 4px;
+        margin-bottom: 17px;
+
+        a {
+          text-decoration: none;
+          color: $white;
+          font-family: "Open sans";
+          text-transform: uppercase;
+          font-size: 14px;
+          padding: 5px 9px;
+          background-color: $gray;
+        }
+      }
+    }
   }
 }
