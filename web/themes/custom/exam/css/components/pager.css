@@ -6,9 +6,8 @@
 .pager .pager__items .pager__item {
   font-size: 14px;
   font-family: "Inter";
-  width: 30px;
   height: 30px;
-  padding: 6.8px 10.5px;
+  padding: 6.8px 10.7px;
   margin: 0px 2px;
 }
 .pager .pager__items .pager__item a {
@@ -22,6 +21,6 @@
   padding: 4px 11px;
 }
 .pager .pager__items .pager__item.is-active {
-  border-radius: 50%;
+  border-radius: 15px;
   background-color: #cccccc;
 }
