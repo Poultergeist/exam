@@ -64,3 +64,5 @@
 /.github
 
 /web/**/node_modules
+
+**/.vscode
