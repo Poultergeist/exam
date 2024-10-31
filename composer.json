@@ -29,6 +29,7 @@
         "drupal/quick_node_clone": "^1.18",
         "drupal/readmore_extrafield": "^3.1",
         "drupal/search_api": "^1.35",
+        "drupal/search_api_block": "^1.1",
         "drupal/search_api_page": "^1.1",
         "drupal/slick": "^3.0",
         "drupal/slick_views": "^3.0",

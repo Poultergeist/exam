@@ -1,3 +1,10 @@
+.node--type-team-member.node--view-mode-teaser .field--name-field-team-member-photo {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-field-team-member-photo:hover {
+  filter: none;
+}
 .node--type-team-member.node--view-mode-teaser .field--name-title {
   font-family: "Open sans";
   text-transform: uppercase;
