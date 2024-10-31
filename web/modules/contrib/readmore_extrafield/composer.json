@@ -1,0 +1,32 @@
+{
+  "name": "drupal/readmore_extrafield",
+  "description": "Render the Read More link as an extra field with additional settings",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "geoffray (geoffray)",
+      "homepage": "https://www.drupal.org/u/geoffray",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Julian Pustkuchen (Anybody)",
+      "homepage": "https://www.drupal.org/u/Anybody",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Thomas Frobieter (tfrobieter)",
+      "homepage": "https://www.drupal.org/u/tfrobieter",
+      "role": "Co-maintainer"
+    }
+  ],
+  "homepage": "https://drupal.org/project/readmore_extrafield",
+  "support": {
+    "issues": "https://drupal.org/project/issues/readmore_extrafield",
+    "source": "https://git.drupalcode.org/project/readmore_extrafield"
+  },
+  "require": {
+    "drupal/extra_field": "^2",
+    "drupal/extra_field_plus": "^3"
+  }
+}

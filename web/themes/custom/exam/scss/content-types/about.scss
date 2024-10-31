@@ -1,0 +1,52 @@
+@import "../partials";
+
+.node--type-about {
+  &.node--view-mode-teaser {
+    margin-top: 99px;
+    border-top: solid 5px black;
+    border-bottom: solid 5px $blue;
+
+    .layout__region--content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .field--name-title {
+      font-size: 29.4px;
+      text-transform: uppercase;
+      font-family: "Avenir";
+      display: block;
+      font-weight: 900;
+      margin: 10px 0 11px 2px;
+      letter-spacing: 0.1px;
+      color: $gray;
+    }
+
+    .field--name-body {
+      font-family: "Avenir";
+      text-transform: uppercase;
+      font-size: 19px;
+      margin-right: 23px;
+      font-weight: 100;
+      letter-spacing: 0.55px;
+      margin-bottom: 1px;
+      word-spacing: -0.4px;
+      color: $middle-gray;
+    }
+
+    .field--name-extra-field-readmore-extrafield a {
+      text-decoration: none;
+      color: #fff;
+      padding: 6px 9.6px 4px 9px;
+      background-color: #6e9bca;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: "Avenir";
+      margin-bottom: 1px;
+      display: block;
+      letter-spacing: -0.3px;
+    }
+  }
+}

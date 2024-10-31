@@ -1,0 +1,8 @@
+uuid: 9bb88140-591b-4884-b386-c4b3fe4b3837
+langcode: en
+status: true
+dependencies: {  }
+id: social_links_site
+label: 'Social links site'
+revision: 0
+description: ''

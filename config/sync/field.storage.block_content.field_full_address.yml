@@ -1,0 +1,21 @@
+uuid: 73d5f84c-a0fd-4127-a16d-1b9d2c8c8fab
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_full_address
+field_name: field_full_address
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

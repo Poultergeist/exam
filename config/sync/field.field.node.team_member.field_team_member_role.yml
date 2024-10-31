@@ -1,0 +1,29 @@
+uuid: 174d29f8-046d-455b-9c68-4ba79b35510c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team_member_role
+    - node.type.team_member
+    - taxonomy.vocabulary.team_role
+id: node.team_member.field_team_member_role
+field_name: field_team_member_role
+entity_type: node
+bundle: team_member
+label: 'Team member role'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      team_role: team_role
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

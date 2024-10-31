@@ -1,0 +1,15 @@
+field.formatter.settings.extra_field_example_node_label:
+  type: mapping
+  mapping:
+    link_to_entity:
+      type: boolean
+    wrapper:
+      type: string
+
+field.formatter.settings.extra_field_example_node_label_formatted:
+  type: mapping
+  mapping:
+    link_to_entity:
+      type: boolean
+    wrapper:
+      type: string

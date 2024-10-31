@@ -1,0 +1,112 @@
+header {
+  z-index: 10;
+  width: 100%;
+  padding: 39px 0;
+}
+header.header-absolute {
+  position: absolute;
+}
+header.header-absolute .header-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: 3%;
+  box-shadow: #373645 0 0 15px 3px;
+  z-index: -1;
+  width: 94%;
+  height: 30%;
+  border-radius: 30%;
+}
+header #search-api-page-block-form-global-search-page {
+  display: flex;
+}
+header .header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  position: relative;
+}
+
+.region-header {
+  background-color: #373645;
+  padding: 32px 39px 32px 37px;
+}
+.region-primary-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+}
+.region-primary-menu > nav {
+  flex: 1;
+}
+.region-primary-menu .block-block-content {
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+}
+.region-primary-menu .block-block-content > *:not(.contextual) {
+  margin: 0 5.5px;
+}
+.region-primary-menu > *,
+.region-primary-menu .menu {
+  display: flex;
+  flex-direction: row;
+}
+.region-primary-menu .menu {
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3px 16px 0 30px;
+}
+.region-primary-menu .menu > :first-child {
+  margin-right: 7px;
+}
+.region-primary-menu .menu > :first-child a.is-active::after {
+  top: 63px;
+}
+.region-primary-menu .menu > * {
+  position: relative;
+}
+.region-primary-menu .menu > * a {
+  text-decoration: none;
+  color: #373645;
+  display: flex;
+  font-family: "Open sans";
+  font-size: 14px;
+}
+.region-primary-menu .menu > * a.is-active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 8px;
+  background-color: #6e9bca;
+  top: 58px;
+  pointer-events: none;
+}
+.region-secondary-menu {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+.region-secondary-menu form .search-form__submit {
+  width: 39px;
+  height: 40px;
+  background: none;
+  border: 1px solid #d8d8d8;
+  border-radius: 0 1px 1px 0;
+  color: transparent;
+  background-image: url("/themes/custom/exam/images/Search-img.png");
+}
+.region-secondary-menu form .form-search {
+  height: 39px;
+  border: solid 1px #d8d8d8;
+  border-radius: 1px 0 0 1px;
+  width: 8.9vw;
+  min-width: 130px;
+  border-right: none;
+  outline: none;
+  padding: 5px;
+}

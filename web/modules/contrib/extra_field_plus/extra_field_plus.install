@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the extra_field_plus module.
+ */
+
+/**
+ * IMPORTANT: extra_field_plus 3.x upgrade: BREAKING CHANGES!
+ */
+function extra_field_plus_update_4000() {
+  \Drupal::messenger()->addStatus("IMPORTANT: extra_field_plus 3.x contains BREAKING CHANGES due to misconceptions in earlier versions.\n
+    When upgrading to 3.x, you have to adjust your ExtraFieldPlus Display Plugins to match the new static method names.\n
+    For details see https://git.drupalcode.org/project/extra_field_plus/-/blob/3.x/UPGRADE.md\n
+    You may cancel this update and go back to the earlier version to read details first.");
+}

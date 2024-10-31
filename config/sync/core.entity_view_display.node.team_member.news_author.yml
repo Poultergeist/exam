@@ -1,0 +1,98 @@
+uuid: 7f45a654-7107-449a-b099-6a6d199af0dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.news_author
+    - field.field.node.team_member.body
+    - field.field.node.team_member.field_facebook
+    - field.field.node.team_member.field_linkedin
+    - field.field.node.team_member.field_team_member_photo
+    - field.field.node.team_member.field_team_member_role
+    - field.field.node.team_member.field_twitter
+    - node.type.team_member
+  module:
+    - image
+    - layout_builder
+    - layout_discovery
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          341993c5-4f82-409f-be13-f3c32c7a5d86:
+            uuid: 341993c5-4f82-409f-be13-f3c32c7a5d86
+            region: content
+            configuration:
+              id: 'field_block:node:team_member:field_team_member_photo'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: image
+                label: above
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          4d4c5e74-feb4-4326-9122-a1dffe098943:
+            uuid: 4d4c5e74-feb4-4326-9122-a1dffe098943
+            region: content
+            configuration:
+              id: 'field_block:node:team_member:title'
+              label: Writer
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.team_member.news_author
+targetEntityType: node
+bundle: team_member
+mode: news_author
+content:
+  field_team_member_photo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  sharing_buttons:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  extra_field_readmore_extrafield: true
+  field_facebook: true
+  field_linkedin: true
+  field_team_member_role: true
+  field_twitter: true
+  flag_like: true
+  links: true
+  search_api_excerpt: true

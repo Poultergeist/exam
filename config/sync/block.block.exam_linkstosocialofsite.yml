@@ -1,0 +1,25 @@
+uuid: b41bb9ac-ec32-429e-b206-0f0335897c78
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:social_links_site:5f2f4576-ab25-4b74-a093-2f002697afd6'
+  module:
+    - block_content
+  theme:
+    - exam
+id: exam_linkstosocialofsite
+theme: exam
+region: primary_menu
+weight: -6
+provider: null
+plugin: 'block_content:5f2f4576-ab25-4b74-a093-2f002697afd6'
+settings:
+  id: 'block_content:5f2f4576-ab25-4b74-a093-2f002697afd6'
+  label: 'Links to social of site'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

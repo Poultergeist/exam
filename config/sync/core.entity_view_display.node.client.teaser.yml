@@ -1,0 +1,33 @@
+uuid: 4b8680eb-2807-4444-89fa-7a5e65805567
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.client.field_client_logo
+    - field.field.node.client.field_client_site_link
+    - node.type.client
+  module:
+    - image
+    - user
+id: node.client.teaser
+targetEntityType: node
+bundle: client
+mode: teaser
+content:
+  field_client_logo:
+    type: image
+    label: above
+    settings:
+      image_link: content
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  extra_field_readmore_extrafield: true
+  field_client_site_link: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,60 @@
+{% import _self as menus %}
+
+{% set attributes = attributes.addClass('menu') %}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+	{% set primary_nav_level = 'menu--level-' ~ (menu_level + 1) %}
+	{% import _self as menus %}
+	{% if items %}
+		<ul {{ attributes.addClass('menu', primary_nav_level) }}>
+			{% set attributes = attributes.removeClass(primary_nav_level) %}
+			{% for item in items %}
+
+				{% if item.url.isRouted and item.url.routeName == '<nolink>' %}
+					{% set menu_item_type = 'nolink' %}
+				{% elseif item.url.isRouted and item.url.routeName == '<button>' %}
+					{% set menu_item_type = 'button' %}
+				{% else %}
+					{% set menu_item_type = 'link' %}
+				{% endif %}
+
+				{% set item_classes = [
+            'menu__item',
+            'menu__item--' ~ menu_item_type,
+            'menu__item--level-' ~ (menu_level + 1),
+            item.in_active_trail ? 'menu__item--active-trail',
+            item.below ? 'menu__item--has-children',
+          ]
+        %}
+
+				{% set link_classes = [
+            'menu__link',
+            'menu__link--' ~ menu_item_type,
+            'menu__link--level-' ~ (menu_level + 1),
+            item.in_active_trail ? 'menu__link--active-trail',
+            item.below ? 'menu__link--has-children',
+          ]
+        %}
+
+				<li{{item.attributes.addClass(item_classes)}}>
+					{% set aria_id = (item.title ~ '-submenu-' ~ loop.index )|clean_id %}
+
+					{% if item.title == 'Home' %}
+						<a href="{{ item.url }}" class="{{ link_classes|join(' ') }}" data-drupal-link-system-path="<front>">
+							<img src="/themes/custom/exam/images/Homepage-menu.png" alt="{{ item.title }}"/>
+						</a>
+					{% else %}
+						{{ link(item.title, item.url, { 'class': link_classes }) }}
+					{% endif %}
+
+					{% if item.below %}
+						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+					{% endif %}
+
+
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}

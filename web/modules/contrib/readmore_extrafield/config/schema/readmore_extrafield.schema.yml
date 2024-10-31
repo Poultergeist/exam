@@ -1,0 +1,18 @@
+field.formatter.settings.extra_field_readmore_extrafield:
+  type: mapping
+  mapping:
+    link_title:
+      type: string
+      label: 'Link Title'
+    link_classes:
+      type: string
+      label: 'Link Classes'
+    link_attr_title:
+      type: string
+      label: 'Link Attribute Title'
+    link_attr_rel:
+      type: string
+      label: 'Link Attribute Rel'
+    link_attr_target:
+      type: string
+      label: 'Link Attribute Target'

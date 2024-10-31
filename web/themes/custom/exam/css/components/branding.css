@@ -1,0 +1,16 @@
+.block-system-branding-block .site-name a {
+  color: #6e9bca;
+  text-decoration: none;
+  font-family: "Nexa slab bold FREE";
+  font-size: 32px;
+  letter-spacing: -0.6px;
+  line-height: 1;
+}
+.block-system-branding-block .site-slogan {
+  color: #fff;
+  font-family: "Nexa";
+  font-size: 16.5px;
+  letter-spacing: -0.75px;
+  font-weight: 600;
+  line-height: 1.15;
+}

@@ -1,0 +1,10 @@
+@import "../partials";
+
+.node--type-team-member {
+  &.node--view-mode-teaser, &.node--view-mode-news-author {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

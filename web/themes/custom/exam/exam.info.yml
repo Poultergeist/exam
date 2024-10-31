@@ -1,0 +1,16 @@
+name: exam
+type: theme
+base theme: stark
+version: VERSION
+core_version_requirement: ^10
+regions:
+  highlighted: Highlighted
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  banner: Banner
+  content: Content
+  footer: Footer
+libraries:
+  - exam/global-styling
+  - exam/progress-bar

@@ -1,0 +1,101 @@
+uuid: 5015b6f6-43a5-45ac-b245-8f7e673c6aa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.about.body
+    - node.type.about
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          027ab0fe-7372-40aa-abcf-7ecf60f9c8cc:
+            uuid: 027ab0fe-7372-40aa-abcf-7ecf60f9c8cc
+            region: content
+            configuration:
+              id: 'field_block:node:about:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_summary_or_trimmed
+                label: hidden
+                settings:
+                  trim_length: 600
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          3f9a84c6-71e0-476f-8687-4e4559f011be:
+            uuid: 3f9a84c6-71e0-476f-8687-4e4559f011be
+            region: content
+            configuration:
+              id: 'extra_field_block:node:about:extra_field_readmore_extrafield'
+              label: 'Read more'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional:
+              extra_field_plus_settings:
+                link_title: 'More details'
+                link_classes: ''
+                link_attr_title: ''
+                link_attr_rel: ''
+                link_attr_target: ''
+          b2b8addc-158b-4a8b-9dca-d626fb72e49b:
+            uuid: b2b8addc-158b-4a8b-9dca-d626fb72e49b
+            region: content
+            configuration:
+              id: 'field_block:node:about:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.about.teaser
+targetEntityType: node
+bundle: about
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  extra_field_readmore_extrafield: true
+  search_api_excerpt: true

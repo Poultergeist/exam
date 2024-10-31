@@ -1,0 +1,20 @@
+@import "../partials";
+
+.node--type-project {
+  background-color: $white;
+
+  .field--name-title {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 26px;
+
+    a {
+      text-decoration: none;
+      color: $gray;
+      font-family: "Avenir";
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+  }
+}

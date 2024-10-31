@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Theme for readmore_extrafield readmore links.
+ *
+ * Available variables:
+ * - title: The link text.
+ * - url: The link URL. If omitted, the 'title' is shown as a plain text
+ *     item in the links list. If 'href' is supplied, the entire link is passed
+ *     to l() as its $options parameter.
+ * - attributes: (optional) HTML attributes for the anchor, or for the <span>
+ */
+#}
+<div class="readmore-extrafield">{{ link(title, url, attributes) }}</div>

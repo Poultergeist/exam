@@ -1,0 +1,41 @@
+.region-banner .slick-slide > div {
+  display: flex;
+}
+
+.banner-text {
+  font-family: "Avenir";
+  text-transform: uppercase;
+}
+.banner-text.banner-first-line {
+  top: 210px;
+  font-size: 67px;
+  font-weight: 300;
+  left: 6.8%;
+  color: #fff;
+  letter-spacing: -1.1px;
+}
+.banner-text.banner-second-line {
+  top: 279px;
+  left: 6.7%;
+  font-size: 39.2px;
+  letter-spacing: 0.1px;
+}
+.banner-text.banner-third-line {
+  top: 329px;
+  width: 346px;
+  font-size: 13px;
+  left: 6.9%;
+  letter-spacing: 0.22px;
+  line-height: 1.25;
+  color: #6e9bca;
+}
+
+@media screen and (max-width: 1280px) {
+  .region-banner .views_slideshow_cycle_main .views_slideshow_cycle_slide {
+    width: 100% !important;
+  }
+  .region-banner .views_slideshow_cycle_main .views_slideshow_cycle_slide img {
+    height: 466.667px;
+    object-fit: cover;
+  }
+}

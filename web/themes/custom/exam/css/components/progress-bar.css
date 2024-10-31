@@ -1,0 +1,20 @@
+.banner-line {
+  display: flex;
+  list-style: none;
+}
+.banner-line > li, .banner-line > li button {
+  height: 5px;
+  flex: 1;
+  display: flex;
+}
+.banner-line > li.slick-previous-active > button, .banner-line > li.slick-active > button {
+  background-color: #6e9bca;
+}
+.banner-line > li.slick-active > button {
+  border-right: 5px #373645 solid;
+}
+.banner-line button {
+  background-color: #d8d8d8;
+  border: none;
+  color: transparent;
+}

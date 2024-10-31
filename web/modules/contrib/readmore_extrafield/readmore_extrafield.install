@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Includes readmore_extrafield installation functionalities.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function readmore_extrafield_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'update') {
+    $requirements['extra_field_plus'] = [
+      'title' => t('Readmore Extrafield 3.x'),
+      'value' => t('Extra Field and Extra Field Settings Provider required'),
+      'description' => t(
+        'Readmore Extrafield >= 3.0 requires <a href=":extra_field">extra_field</a> and <a href=":extra_field_plus">extra_field_plus</a> to be enabled. They are now a dependency and need to be installed before running updates.',
+        [
+          ':extra_field' => 'https://www.drupal.org/project/extra_field',
+          ':extra_field_plus' => 'https://www.drupal.org/project/extra_field_plus',
+        ],
+      ),
+      'severity' => REQUIREMENT_ERROR,
+    ];
+  }
+}
+
+/**
+ * Enable new dependencies extra_field & extra_field_plus.
+ *
+ * IMPORTANT: If you upgraded readmore_extrafield from 1.x to 3.x and you're
+ * overwriting readmore-extrafield.html.twig in your theme, check the module
+ * page and update your readmore-extrafield.html.twig as variables changed.
+ */
+function readmore_extrafield_update_8301(&$sandbox) {
+  \Drupal::service("module_installer")->install(["extra_field"]);
+  \Drupal::service("module_installer")->install(["extra_field_plus"]);
+
+  return t("IMPORTANT: If you upgraded readmore_extrafield from 1.x to 3.x and you're overwriting readmore-extrafield.html.twig in your theme, check the module page and update your readmore-extrafield.html.twig as variables changed.");
+}

@@ -1,0 +1,16 @@
+.node--type-project {
+  background-color: #fff;
+}
+.node--type-project .field--name-title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 26px;
+}
+.node--type-project .field--name-title a {
+  text-decoration: none;
+  color: #373645;
+  font-family: "Avenir";
+  text-transform: uppercase;
+  font-size: 24px;
+}

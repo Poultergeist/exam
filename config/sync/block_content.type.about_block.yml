@@ -1,0 +1,8 @@
+uuid: 3350e13f-e097-4375-bb68-eea15c900bfc
+langcode: en
+status: true
+dependencies: {  }
+id: about_block
+label: 'About block'
+revision: 0
+description: ''

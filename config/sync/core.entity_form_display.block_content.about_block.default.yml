@@ -1,0 +1,20 @@
+uuid: f243aec3-4d56-42e3-b209-0a5aed98c7bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.about_block
+id: block_content.about_block.default
+targetEntityType: block_content
+bundle: about_block
+mode: default
+content:
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

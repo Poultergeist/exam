@@ -1,0 +1,366 @@
+<?php
+
+/**
+ * @file
+ * Main file for extra_field_plus module.
+ */
+
+use Drupal\layout_builder\Plugin\Block\ExtraFieldBlock;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function extra_field_plus_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.extra_field_plus':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides base plugins and interface for extra fields with editable display settings, like normal fields formatter settings.') . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<p>' . t('To provide the extra field plugin with settings you must at least extend the <code>ExtraFieldPlusDisplayInterface</code>.') . '</p>';
+      $output .= '<p>' . t('But there are two base plugins which can help you with this. Just extend <code>ExtraFieldPlusDisplayBase</code> or <code>ExtraFieldPlusDisplayFormattedBase</code> plugins.') . '</p>';
+      $output .= '<p>' . t('All yours extra field plugins have to be placed in <code>your_custom_module/src/Plugin/ExtraField/Display</code> folder.') . '</p>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function extra_field_plus_form_entity_view_display_edit_form_alter(array &$form, FormStateInterface $form_state) {
+  if (empty($form['#extra'])) {
+    return;
+  }
+
+  // Visible extra_fields may not have settings. If we don't add settings
+  // forms here we don't need to call our form submit handler.
+  $settings_added = FALSE;
+
+  $entity_type = $form['#entity_type'];
+  $bundle = $form['#bundle'];
+  $view_mode = \Drupal::routeMatch()
+    ->getParameter('view_mode_name');
+
+  /** @var \Drupal\extra_field_plus\Plugin\ExtraFieldPlusDisplayManager $extraFieldPlusDisplayManager */
+  $extraFieldPlusDisplayManager = \Drupal::service('plugin.manager.extra_field_plus_display');
+  $extraFieldInfo = $extraFieldPlusDisplayManager->fieldInfo();
+
+  /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $entity_view_display */
+  $entity_view_display = \Drupal::entityTypeManager()
+    ->getStorage('entity_view_display')
+    ->load($entity_type . '.' . $bundle . '.' . $view_mode);
+
+  // If not found, create a fresh display object. We do not preemptively create
+  // new entity_view_display configuration entries for each existing entity type
+  // and bundle whenever a new view mode becomes available. Instead,
+  // configuration entries are only created when a display object is explicitly
+  // configured and saved.
+  if (!$entity_view_display) {
+    $entity_view_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_display')
+      ->create([
+        'targetEntityType' => $entity_type,
+        'bundle' => $bundle,
+        'mode' => $view_mode,
+        'status' => TRUE,
+      ]);
+  }
+
+  $user_input = $form_state->getUserInput();
+  foreach ($form['#extra'] as $name) {
+    if (isset($extraFieldInfo[$entity_type][$bundle]['display'][$name])) {
+
+      // Flag that extra field have settings.
+      $settings_added = TRUE;
+
+      $row = &$form['fields'][$name];
+      $component = $entity_view_display->getComponent($name);
+
+      // Check if field is not disabled.
+      if (!$component) {
+        if ($user_input && $user_input['fields'][$name]['region'] == 'hidden') {
+          continue;
+        }
+        elseif ($row['region']['#default_value'] == 'hidden') {
+          continue;
+        }
+        else {
+          $settings = [];
+        }
+      }
+      else {
+        if ($user_input && $user_input['fields'][$name]['region'] == 'hidden') {
+          continue;
+        }
+        else {
+          $settings = $component['settings'] ?? [];
+          if (!$form_state->get($name)) {
+            $form_state->set($name, $settings);
+          }
+          else {
+            $settings = $form_state->get($name);
+          }
+          if ($form_state->get('plugin_settings_edit') && $form_state->get('plugin_settings_edit') != $name) {
+            $settings = $user_input['fields'][$name]['settings_edit_form']['settings'] ?? $settings;
+            $form_state->set($name, $settings);
+          }
+        }
+      }
+
+      $pluginId = $extraFieldInfo[$entity_type][$bundle]['display'][$name]['plugin_id'];
+      $settings_form = $extraFieldPlusDisplayManager->getSettingsForm($pluginId, $name, $entity_type, $bundle, $view_mode);
+      $settings_summary = $extraFieldPlusDisplayManager->getSettingsSummary($pluginId, $name, $entity_type, $bundle, $view_mode);
+    }
+    else {
+      continue;
+    }
+
+    // Base button element for the various formatter settings actions.
+    $base_button = [
+      '#submit' => ['::multistepSubmit'],
+      '#ajax' => [
+        'callback' => '::multistepAjax',
+        'wrapper' => 'field-display-overview-wrapper',
+        'effect' => 'fade',
+      ],
+      '#field_name' => $name,
+    ];
+
+    if (!empty($settings_form)) {
+      $settings_edit = $base_button + [
+        '#type' => 'image_button',
+        '#attributes' => [
+          'class' => ['field-plugin-settings-edit'],
+          'alt' => t('Edit'),
+        ],
+        '#src' => 'core/misc/icons/787878/cog.svg',
+        '#name' => $name . '_settings_edit',
+        '#op' => 'edit',
+        '#prefix' => '<div class="field-plugin-settings-edit-wrapper">',
+        '#suffix' => '</div>',
+      ];
+      if ($form_state->get('plugin_settings_edit') == $name) {
+        $value = $form_state->get($name) ?: $settings;
+        foreach (Element::children($settings_form) as $key) {
+          if (isset($value[$key])) {
+            $settings_form[$key]['#default_value'] = $value[$key];
+          }
+        }
+        $row['plugin']['settings_edit_form'] = [];
+
+        $row['plugin']['#cell_attributes'] = ['colspan' => 1];
+        $row['plugin']['settings_edit_form'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['field-plugin-settings-edit-form']],
+          '#parents' => ['fields', $name, 'settings_edit_form'],
+          'label' => [
+            '#markup' => t('Display settings:'),
+          ],
+          'settings' => $settings_form,
+          'actions' => [
+            '#type' => 'actions',
+            'save_settings' => $base_button + [
+              '#type' => 'submit',
+              '#button_type' => 'primary',
+              '#name' => $name . '_plugin_settings_update',
+              '#value' => t('Update'),
+              '#op' => 'update',
+            ],
+            'cancel_settings' => $base_button + [
+              '#type' => 'submit',
+              '#name' => $name . '_plugin_settings_cancel',
+              '#value' => t('Cancel'),
+              '#op' => 'cancel',
+              '#limit_validation_errors' => [['fields', $name, 'type']],
+            ],
+          ],
+        ];
+        $row['#attributes']['class'][] = 'field-plugin-settings-editing';
+      }
+      elseif ($form_state->get('plugin_settings_update') == $name) {
+        $storage = $user_input['fields'][$name]['settings_edit_form']['settings'];
+        $form_state->set($name, $storage);
+        $row['settings_edit'] = $settings_edit;
+        // @todo To show the changed values in summary, we'd have to get the
+        // actual values from $storage here and use these for the
+        // $settings_summary.
+        // We could for example do this by calling
+        // ::getExtraFieldSettingsSummary and passing the $form_state.
+        // @see https://www.drupal.org/project/extra_field_plus/issues/3305762
+        // $row['settings_summary'] = $settings_summary;
+        // Until that is solved, we just show "Unsaved changes" here to
+        // prevent confusion
+        $row['settings_summary'] = [
+          '#type' => 'inline_template',
+          '#template' => '<div class="field-plugin-summary"><em>{{ summary }}</em></div>',
+          '#context' => ['summary' => t('Unsaved changes')],
+        ];
+        $form_state->set('plugin_settings_update', NULL);
+      }
+      else {
+        $row['settings_edit'] = $settings_edit;
+        $row['settings_summary'] = $settings_summary;
+      }
+    }
+  }
+
+  if ($settings_added) {
+    $form['actions']['submit']['#submit'][] = 'extra_field_plus_form_entity_view_display_edit_form_submit';
+  }
+}
+
+/**
+ * Implements submit handler for Field UI display (Manage Display) form.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function extra_field_plus_form_entity_view_display_edit_form_submit(array $form, FormStateInterface $form_state) {
+  if (empty($form['#extra'])) {
+    return;
+  }
+
+  $entity_type = $form['#entity_type'];
+  $bundle = $form['#bundle'];
+  $view_mode = \Drupal::routeMatch()
+    ->getParameter('view_mode_name');
+
+  /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $view_display */
+  $view_display = \Drupal::entityTypeManager()
+    ->getStorage('entity_view_display')
+    ->load($entity_type . '.' . $bundle . '.' . $view_mode);
+
+  $extra = \Drupal::service('plugin.manager.extra_field_plus_display')
+    ->fieldInfo();
+
+  if ($view_display) {
+    foreach ($form['#extra'] as $name) {
+      if (isset($extra[$entity_type][$bundle]['display'][$name])) {
+        $row = $form['fields'][$name];
+
+        // Don't process for hidden field.
+        if ($row['region']['#value'] == 'hidden') {
+          continue;
+        }
+
+        $component = $view_display->getComponent($name);
+
+        // Get settings from user input if user submitted display form
+        // while editing extra field settings.
+        if ($form_state->get('plugin_settings_update') == $name) {
+          $user_input = $form_state->getUserInput();
+          $settings = $user_input['fields'][$name]['settings_edit_form']['settings'];
+        }
+        // Get from storage.
+        elseif ($form_state->get($name)) {
+          $settings = $form_state->get($name);
+        }
+        // Get from display mode settings.
+        else {
+          $settings = $component['settings'];
+        }
+
+        $view_display->setComponent($name,
+          [
+            // Setting a type makes it possible to provide a config schema for
+            // the settings.
+            'type' => $name,
+            'settings' => $settings,
+          ] + $component)
+          ->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function extra_field_plus_form_alter(array &$form, FormStateInterface &$form_state, $form_id) {
+  // Layout builder support:
+  if (in_array($form_id, [
+      'layout_builder_add_block',
+      'layout_builder_update_block'
+    ])) {
+    /** @var \Drupal\layout_builder\SectionComponent $component */
+    $component = $form_state->getFormObject()->getCurrentComponent();
+    [
+      $componentPluginId,
+      $entity_type_id,
+      $bundle,
+      $field_name,
+    ] = explode(ExtraFieldBlock::DERIVATIVE_SEPARATOR, $component->get('configuration')['id'], 4);
+
+    if ($componentPluginId === 'extra_field_block') {
+      /** @var \Drupal\Core\Plugin\Context\Context $context */
+      $context = $form_state->getTemporaryValue('gathered_contexts')['display'];
+      /** @var \Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay $display */
+      $display = $context->getContextValue();
+      $view_mode = $display->getMode();
+
+      // @todo We may use third party settings here later, once
+      // https://www.drupal.org/project/drupal/issues/3015152 is out:
+      // $settings = $component->getThirdPartySetting('extra_field_plus', 'settings') ?? [];
+      // until that we get values this way:
+      $settings = $component->get('extra_field_plus_settings');
+
+      /** @var \Drupal\extra_field_plus\Plugin\ExtraFieldPlusDisplayManager $extraFieldPlusDisplayManager */
+      $extraFieldPlusDisplayManager = \Drupal::service('plugin.manager.extra_field_plus_display');
+      $extraFieldInfo = $extraFieldPlusDisplayManager->fieldInfo();
+      $fieldPluginId = $extraFieldInfo[$entity_type_id][$bundle]['display'][$field_name]['plugin_id'];
+      $settings_form = $extraFieldPlusDisplayManager->getSettingsForm($fieldPluginId, $field_name, $entity_type_id, $bundle, $view_mode);
+
+      foreach (Element::children($settings_form) as $key) {
+        if (isset($settings[$key])) {
+          $settings_form[$key]['#default_value'] = $settings[$key];
+        }
+      }
+      $form['settings']['third_party_settings']['extra_field_plus']['settings'] = $settings_form;
+
+      // Our submit handler must execute before the default one, because the
+      // default handler stores the section & component data in the tempstore
+      // and we need to update those objects before that happens.
+      array_unshift($form['#submit'], 'extra_field_plus_form_submit');
+    }
+  }
+}
+
+/**
+ * Implements submit handler for layout builder block forms.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function extra_field_plus_form_submit(array $form, FormStateInterface $form_state) {
+  // Layout builder support:
+  // Note: EntityDisplayBase components are quite different (array) from layout
+  // builder components (objects)! So we have to handle their data differently.
+  $settings = $form_state->getValue([
+    'settings',
+    'third_party_settings',
+    'extra_field_plus',
+    'settings',
+  ]) ?? [];
+  /** @var \Drupal\layout_builder\SectionComponent $component */
+  $component = $form_state->getFormObject()->getCurrentComponent();
+
+  // @todo We may use third party settings here later, once
+  // https://www.drupal.org/project/drupal/issues/3015152 is out:
+  // $component->setThirdPartySetting('extra_field_plus', 'settings', $settings);
+  // until that we set values this way:
+  $component->set('extra_field_plus_settings', $settings);
+
+  // /** @var \Drupal\layout_builder\Form\UpdateBlockForm $form_object */
+  // $form_object = $form_state->getFormObject();
+  // // Call doBuildForm since $this->block gets set based on config and
+  // // there is no other way to modify the built object.
+  // $form_object->doBuildForm($form, $form_state,  $form_object->getSectionStorage(), 0, $component);
+}

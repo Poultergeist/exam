@@ -1,0 +1,53 @@
+@import "../partials";
+
+.region-banner {
+  .slick-slide > div {
+    display: flex;
+  }
+}
+
+.banner-text {
+  font-family: "Avenir";
+  text-transform: uppercase;
+
+  &.banner-first-line {
+    top: 210px;
+    font-size: 67px;
+    font-weight: 300;
+    left: 6.8%;
+    color: $white;
+    letter-spacing: -1.1px;
+  }
+
+  &.banner-second-line {
+    top: 279px;
+    left: 6.7%;
+    font-size: 39.2px;
+    letter-spacing: 0.1px;
+  }
+
+  &.banner-third-line {
+    top: 329px;
+    width: 346px;
+    font-size: 13px;
+    left: 6.9%;
+    letter-spacing: 0.22px;
+    line-height: 1.25;
+    color: $blue;
+  }
+}
+
+@include adaptive(1280px) {
+  .region-banner {
+    .views_slideshow_cycle_main {
+      .views_slideshow_cycle_slide {
+        width: 100% !important;
+  
+        img {
+          height: 466.667px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

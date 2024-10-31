@@ -1,0 +1,28 @@
+uuid: d583363b-82c4-4d38-8f09-d1797f885637
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.global_search
+id: global_search_page
+label: 'Global search page'
+path: global-search
+clean_url: true
+show_all_when_no_keys: false
+index: global_search
+limit: 10
+searched_fields:
+  title: title
+style: view_modes
+view_mode_configuration:
+  'entity:node':
+    default: teaser
+    overrides:
+      about: ''
+      client: ''
+      news: ''
+      project: ''
+      service: ''
+      team_member: ''
+show_search_form: true
+parse_mode: direct

@@ -1,0 +1,15 @@
+uuid: 1963a6a4-b745-492f-a280-db4631359d5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: global_search_server
+name: 'Global search server'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: words
+  phrase: bigram

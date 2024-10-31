@@ -1,0 +1,8 @@
+uuid: 606f820d-0c90-4ed4-8d3b-327cbaf2d29a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Team role'
+vid: team_role
+description: 'Taxonomy for defining role of team members'
+weight: 0

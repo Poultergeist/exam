@@ -1,0 +1,19 @@
+uuid: f2fab80d-6123-445d-95a2-763492f8172d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+id: block_content.field_facebook
+field_name: field_facebook
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

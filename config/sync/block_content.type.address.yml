@@ -1,0 +1,8 @@
+uuid: 1c8703a1-4e33-41e7-8020-73753900a464
+langcode: en
+status: true
+dependencies: {  }
+id: address
+label: Address
+revision: 0
+description: ''

@@ -1,0 +1,30 @@
+global-styling:
+  css:
+    base:
+      css/global.css: {}
+      css/general/social-links.css: {}
+      css/general/fonts.css:  {}
+    layout:
+      css/content-types/team-member.css: {}
+      css/content-types/project.css: {}
+      css/content-types/about.css: {}
+      css/content-types/services.css: {}
+      css/content-types/projects.css: {}
+      css/layout/grid-layouts.css: {}
+      css/regions/header.css: {}
+      css/regions/banner.css: {}
+      css/regions/highlighted.css: {}
+      css/regions/footer.css: {}
+      css/views/services.css: {}
+      css/views/projects.css: {}
+    component:
+      css/components/progress-bar.css: {}
+      css/components/branding.css: {}
+    state:
+      css/utilities/utilities.css: {}
+
+progress-bar:
+  js:
+    js/progress-bar.js: {}
+  dependencies:
+    - core/jquery

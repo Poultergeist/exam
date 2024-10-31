@@ -1,0 +1,57 @@
+@import "../partials";
+
+.block-views-blockprojects-block-1 {
+  margin-top: 108px;
+
+  &>h2 {
+    text-align: center;
+    font-size: 27px;
+    text-transform: uppercase;
+    font-family: "Open sans";
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    color: $gray;
+    margin-bottom: 18px;
+
+    &::before,
+    &::after {
+      content: "";
+      border-bottom: 1px solid $middle-gray;
+      transform: translateY(1px);
+    }
+
+    &::before {
+      flex: 1.1;
+      margin-left: 15px;
+      margin-right: 2px;
+    }
+
+    &::after {
+      flex: 1.068;
+      margin-right: 15px;
+      margin-left: 2px;
+    }
+  }
+
+  .view-projects {
+    padding-top: 69px;
+    background: repeating-linear-gradient(135deg,
+        /* Diagonal angle */
+        $middle-gray,
+        /* Stripe color */
+        $middle-gray 2px,
+        /* Stripe width */
+        $white 2px,
+        /* Gap color */
+        $white 8px
+        /* Gap width */
+      );
+
+
+  }
+}

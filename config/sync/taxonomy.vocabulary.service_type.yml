@@ -1,0 +1,8 @@
+uuid: 164c54fd-fc73-444f-a9ea-9f889641e4a6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service Type'
+vid: service_type
+description: 'Taxonomy for available service types'
+weight: 0

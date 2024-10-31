@@ -1,0 +1,5 @@
+extra_field_plus.extra_fields_list:
+  title: 'Extra Field Plugins List'
+  description: 'Overview of all extra field plugins (provided by Extra Field Settings Provider).'
+  parent: system.admin_reports
+  route_name: extra_field_plus.extra_field_plugins

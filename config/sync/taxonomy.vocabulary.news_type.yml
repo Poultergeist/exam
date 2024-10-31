@@ -1,0 +1,8 @@
+uuid: 30f58f17-b4b0-4d88-a296-a0ed44f36620
+langcode: en
+status: true
+dependencies: {  }
+name: 'News type'
+vid: news_type
+description: 'Taxonomy for types of written news'
+weight: 0

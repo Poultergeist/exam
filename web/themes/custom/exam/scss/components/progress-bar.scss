@@ -1,0 +1,28 @@
+@import "../partials";
+
+.banner-line {
+  display: flex;
+  list-style: none;
+
+  &>li, &>li button {
+    height: 5px;
+    flex: 1;
+    display: flex;
+  }
+  
+  &>li.slick-previous-active, &>li.slick-active {
+    &>button {
+      background-color: $blue;
+    }
+  }
+  
+    &>li.slick-active>button{
+      border-right: 5px $gray solid;
+    }
+  
+  button {
+    background-color: $ligth-gray;
+    border: none;
+    color: transparent;
+  }
+}

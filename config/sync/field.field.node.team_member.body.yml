@@ -1,0 +1,24 @@
+uuid: 34bf32a9-823b-4cf3-b5c9-a6c9b22f4b52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.team_member
+  module:
+    - text
+id: node.team_member.body
+field_name: body
+entity_type: node
+bundle: team_member
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

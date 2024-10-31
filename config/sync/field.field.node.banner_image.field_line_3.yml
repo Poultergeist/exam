@@ -1,0 +1,19 @@
+uuid: ef29298b-a0e6-4139-a7ca-df12433d760f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_line_3
+    - node.type.banner_image
+id: node.banner_image.field_line_3
+field_name: field_line_3
+entity_type: node
+bundle: banner_image
+label: 'Line 3'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

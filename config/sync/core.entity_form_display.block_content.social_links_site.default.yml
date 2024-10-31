@@ -1,0 +1,49 @@
+uuid: a0c6b851-3eb1-4a23-b833-2871aab2071c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_links_site
+    - field.field.block_content.social_links_site.field_facebook
+    - field.field.block_content.social_links_site.field_linkedin
+    - field.field.block_content.social_links_site.field_twitter
+  module:
+    - link
+id: block_content.social_links_site.default
+targetEntityType: block_content
+bundle: social_links_site
+mode: default
+content:
+  field_facebook:
+    type: link_default
+    weight: 27
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_linkedin:
+    type: link_default
+    weight: 28
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_twitter:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

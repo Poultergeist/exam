@@ -1,0 +1,156 @@
+uuid: f782af1d-96f3-4891-98df-beeed2cb0c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.team_member.body
+    - field.field.node.team_member.field_facebook
+    - field.field.node.team_member.field_linkedin
+    - field.field.node.team_member.field_team_member_photo
+    - field.field.node.team_member.field_team_member_role
+    - field.field.node.team_member.field_twitter
+    - node.type.team_member
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          2a51f411-a0fd-48bd-9d1f-8fa16a8e31d8:
+            uuid: 2a51f411-a0fd-48bd-9d1f-8fa16a8e31d8
+            region: content
+            configuration:
+              id: 'extra_field_block:node:team_member:flag_like'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 8
+            additional: {  }
+          b4c055f8-b980-48c8-9a92-3e7fae55328c:
+            uuid: b4c055f8-b980-48c8-9a92-3e7fae55328c
+            region: content
+            configuration:
+              id: 'field_block:node:team_member:field_team_member_photo'
+              label: 'Team member photo'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: content
+                  image_style: large
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          6be30a68-1fdb-4214-b452-b3ad7e99ae3e:
+            uuid: 6be30a68-1fdb-4214-b452-b3ad7e99ae3e
+            region: content
+            configuration:
+              id: 'field_block:node:team_member:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          85f78ec6-ad7f-4686-b2b7-a4eedbddd551:
+            uuid: 85f78ec6-ad7f-4686-b2b7-a4eedbddd551
+            region: content
+            configuration:
+              id: 'field_block:node:team_member:field_team_member_role'
+              label: 'Team member role'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          0b466784-a88e-43cb-9b29-be3f1d522432:
+            uuid: 0b466784-a88e-43cb-9b29-be3f1d522432
+            region: content
+            configuration:
+              id: 'extra_field_block:node:team_member:extra_field_readmore_extrafield'
+              label: 'Look at me'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                settings: {  }
+                third_party_settings: {  }
+            weight: 7
+            additional:
+              extra_field_plus_settings:
+                link_title: 'Look at me'
+                link_classes: ''
+                link_attr_title: ''
+                link_attr_rel: ''
+                link_attr_target: ''
+        third_party_settings: {  }
+id: node.team_member.teaser
+targetEntityType: node
+bundle: team_member
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  flag_like:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  sharing_buttons:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  extra_field_readmore_extrafield: true
+  field_facebook: true
+  field_linkedin: true
+  field_team_member_photo: true
+  field_team_member_role: true
+  field_twitter: true
+  search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: bb301c23-e150-40e7-8a4e-3d600519e4db
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.news_author
+label: 'News author'
+targetEntityType: node
+cache: true

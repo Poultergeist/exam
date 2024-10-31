@@ -1,0 +1,26 @@
+@import "../partials";
+
+footer {
+  background-color: $gray;
+  padding: 85px 0 59px 0;
+
+  .region-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .block-block-content {
+      display: flex;
+      transform: translateX(23px);
+      padding-top: 5px;
+      @include adaptive(1320px) {
+        transform: none;
+      }
+      
+      &>:not(.contextual){
+        margin-left: 12px;
+        height: 25px;
+      }
+    }
+  }
+}

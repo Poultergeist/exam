@@ -1,0 +1,20 @@
+.grid-col-2 > .view-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.grid-col-3 > .view-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.grid-col-4 > .view-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.grid-col-8 > .view-content {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 28px;
+}

@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * This module adds a "Read more" extrafield to all node displays.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function readmore_extrafield_theme($existing, $type, $theme, $path) {
+  return [
+    'readmore_extrafield' => [
+      'variables' => [
+        'title' => NULL,
+        'url' => NULL,
+        'attributes' => [],
+        'entity' => NULL,
+        'view_mode' => '',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function readmore_extrafield_theme_suggestions_readmore_extrafield(array $variables) {
+  if (empty($variables['entity']) || empty($variables['view_mode'])) {
+    return;
+  }
+  $entity = $variables['entity'];
+  $entity_type = $entity->getEntityTypeId();
+  $bundle = $entity->bundle();
+  $entity_id = $entity->id();
+  $sanitized_view_mode = !empty($variables['view_mode']) ? strtr($variables['view_mode'], '.', '_') : '';
+
+  $suggestions = [];
+  $suggestions[] = 'readmore_extrafield__' . $sanitized_view_mode;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type . '__' . $sanitized_view_mode;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type . '__' . $bundle;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type . '__' . $bundle . '__' . $sanitized_view_mode;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type . '__' . $entity_id;
+  $suggestions[] = 'readmore_extrafield__' . $entity_type . '__' . $entity_id . '__' . $sanitized_view_mode;
+
+  return $suggestions;
+}

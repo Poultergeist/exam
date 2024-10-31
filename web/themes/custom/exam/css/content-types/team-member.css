@@ -1,0 +1,4 @@
+.node--type-team-member.node--view-mode-teaser img, .node--type-team-member.node--view-mode-news-author img {
+  width: 100%;
+  height: auto;
+}

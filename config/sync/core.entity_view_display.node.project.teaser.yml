@@ -1,0 +1,150 @@
+uuid: 840787c4-cf62-4295-88ef-0f83bdf28784
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.project.body
+    - field.field.node.project.field_project_image
+    - field.field.node.project.field_project_type
+    - node.type.project
+  module:
+    - image
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          766267c6-8c92-482c-9145-00ed552a7e75:
+            uuid: 766267c6-8c92-482c-9145-00ed552a7e75
+            region: content
+            configuration:
+              id: 'field_block:node:project:field_project_image'
+              label: 'Project Image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          68b760c5-c298-4c73-af4c-c98b4f50772a:
+            uuid: 68b760c5-c298-4c73-af4c-c98b4f50772a
+            region: content
+            configuration:
+              id: 'field_block:node:project:field_project_type'
+              label: 'Project type'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          62648d7a-e6db-4858-8d7c-f10aa3b76e0a:
+            uuid: 62648d7a-e6db-4858-8d7c-f10aa3b76e0a
+            region: content
+            configuration:
+              id: 'extra_field_block:node:project:extra_field_readmore_extrafield'
+              label: 'Read more'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional:
+              extra_field_plus_settings:
+                link_title: Details
+                link_classes: ''
+                link_attr_title: ''
+                link_attr_rel: ''
+                link_attr_target: ''
+          1f692551-b9a6-40f1-a2e5-c7b89a11932f:
+            uuid: 1f692551-b9a6-40f1-a2e5-c7b89a11932f
+            region: content
+            configuration:
+              id: 'field_block:node:project:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+id: node.project.teaser
+targetEntityType: node
+bundle: project
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  extra_field_readmore_extrafield:
+    type: extra_field_readmore_extrafield
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_project_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_project_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_link_to_node: true
+  links: true
+  search_api_excerpt: true
