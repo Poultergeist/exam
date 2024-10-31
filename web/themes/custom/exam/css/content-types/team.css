@@ -1,0 +1,68 @@
+.node--type-team-member.node--view-mode-teaser .field--name-title {
+  font-family: "Open sans";
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  width: 100%;
+  display: block;
+  margin-top: 25px;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-title a {
+  text-decoration: none;
+  color: #373645;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-field-team-member-role {
+  text-align: center;
+  font-family: "Open sans";
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-size: 12.2px;
+  width: 100%;
+  display: block;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-field-team-member-role a {
+  text-decoration: none;
+  color: #cccccc;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-extra-field-readmore-extrafield {
+  text-align: center;
+  font-family: "Open sans";
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 23px;
+  width: 100%;
+}
+.node--type-team-member.node--view-mode-teaser .field--name-extra-field-readmore-extrafield a {
+  color: white;
+  text-decoration: none;
+  background-color: #373645;
+  padding: 5px 9px;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section {
+  margin-top: 26px;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--first {
+  flex: 0 1 64%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--first > * {
+  margin: 5px;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--second {
+  flex: 0 1 36%;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--second > * {
+  display: flex;
+  height: 100%;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--second .flag-like {
+  margin-left: 36px;
+  margin-top: 7px;
+}
+.node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--second .flag-like a, .node--type-team-member.node--view-mode-teaser .layout--twocol-section .layout__region--second .flag-like a > img {
+  height: 15px;
+  width: auto;
+}

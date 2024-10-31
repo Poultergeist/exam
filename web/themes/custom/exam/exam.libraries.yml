@@ -9,6 +9,7 @@ global-styling:
       css/content-types/project.css: {}
       css/content-types/about.css: {}
       css/content-types/services.css: {}
+      css/content-types/team.css: {}
       css/layout/grid-layouts.css: {}
       css/regions/header.css: {}
       css/regions/banner.css: {}
@@ -16,6 +17,7 @@ global-styling:
       css/regions/footer.css: {}
       css/views/services.css: {}
       css/views/projects.css: {}
+      css/views/team.css: {}
     component:
       css/components/progress-bar.css: {}
       css/components/branding.css: {}
