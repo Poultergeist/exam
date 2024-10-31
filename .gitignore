@@ -65,4 +65,4 @@
 
 /web/**/node_modules
 
-/**/.vscode/
+.vscode/
