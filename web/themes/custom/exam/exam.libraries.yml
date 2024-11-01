@@ -20,6 +20,7 @@ global-styling:
       css/views/projects.css: {}
       css/views/team.css: {}
       css/views/news.css: {}
+      css/views/clients.css: {}
     component:
       css/components/progress-bar.css: {}
       css/components/branding.css: {}

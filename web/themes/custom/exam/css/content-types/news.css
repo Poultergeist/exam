@@ -64,7 +64,9 @@
 .node--type-news.node--view-mode-teaser > .node__content > .layout--onecol > .layout__region--content {
   flex: 0 1 85.4%;
   margin-left: auto;
+  margin-bottom: 21px;
   padding-left: 19px;
+  border-left: 1px solid #cccccc;
 }
 .node--type-news.node--view-mode-teaser > .node__content > .layout--onecol > .layout__region--content .field--name-title {
   font-family: "Open sans";
@@ -96,5 +98,5 @@
   padding: 5px 9px;
   font-size: 15px;
   letter-spacing: -0.5px;
-  margin: 13px 21px 21px auto;
+  margin: 13px 21px 0px auto;
 }

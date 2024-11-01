@@ -1,0 +1,45 @@
+@import "../partials";
+
+.block-views-blockclients-block-1 {
+  padding-top: 23px;
+
+  &>h2 {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: "Open sans";
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    color: $gray;
+    letter-spacing: -0.5px;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid $middle-gray;
+      margin: 0 15px;
+    }
+  }
+
+  .slick--view--clients {
+    .slide__caption {
+      padding: 0;
+
+      .field-content {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .view-clients {
+    margin-top: 42px;
+    margin-bottom: 152px;
+  }
+}
