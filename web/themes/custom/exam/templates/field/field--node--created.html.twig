@@ -12,9 +12,9 @@
 # @see node_preprocess_field__node()
 #}
 {% if not is_inline %}
-  {% include "field.html.twig" %}
+	{% include "field.html.twig" %}
 {% else %}
-  {%
+	{%
     set classes = [
       'field',
       'field--name-' ~ field_name|clean_class,
@@ -22,19 +22,23 @@
       'field--label-' ~ label_display,
     ]
   %}
-  <span {{ attributes.addClass(classes) }}>
-    {%- for item in items -%}
-      {# Extracting the datetime attribute #}
-      {% set datetime = item.content['#attributes']['datetime'] %}
-      {% set year = datetime|date('Y') %}
-      {% set month = datetime|date('M') %}
-      {% set day = datetime|date('d') %}
-      
-      <time datetime="{{ datetime }}" title="{{ item.content['#attributes']['title'] }}" class="datetime">
-        <span class="date-month">{{ month }}</span>
-        <span class="date-day">{{ day }}</span>
-        <span class="date-year">{{ year }}</span>
-      </time>
-    {%- endfor -%}
-  </span>
+	<span {{ attributes.addClass(classes) }}>
+		{%- for item in items -%}
+			{% if item.content['#attributes']['datetime'] is defined %}
+				{# Extracting the datetime attribute #}
+				{% set datetime = item.content['#attributes']['datetime'] %}
+				{% set year = datetime|date('Y') %}
+				{% set month = datetime|date('M') %}
+				{% set day = datetime|date('d') %}
+
+				<time datetime="{{ datetime }}" title="{{ item.content['#attributes']['title'] }}" class="datetime">
+					<span class="date-month">{{ month }}</span>
+					<span class="date-day">{{ day }}</span>
+					<span class="date-year">{{ year }}</span>
+				</time>
+			{% else %}
+				{{ item.content }}
+			{% endif %}
+		{%- endfor -%}
+	</span>
 {% endif %}
