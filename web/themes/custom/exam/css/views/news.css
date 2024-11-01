@@ -23,4 +23,6 @@
 }
 .block-views-blocknews-block-1 .view-news {
   margin-top: 22px;
+  background: repeating-linear-gradient(135deg, #cccccc, #cccccc 2px, #fff 2px, #fff 8px);
+  padding-bottom: 74px;
 }

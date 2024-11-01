@@ -76,7 +76,7 @@
 
           &--second {
             flex: 0 1 36%;
-            
+
             &>* {
               display: flex;
               height: 100%;
@@ -85,11 +85,55 @@
             .flag-like {
               margin-left: 36px;
               margin-top: 7px;
-              a, a>img {
+
+              a,
+              a>img {
                 height: 15px;
                 width: auto;
               }
-            } 
+            }
+          }
+        }
+      }
+    }
+
+    &-news-author {
+
+      .field--name-field-team-member-photo,
+      .field--name-field-team-member-photo img {
+        height: 79px;
+        width: auto;
+      }
+
+      .layout__region--content {
+        display: flex;
+
+        .block-field-blocknodeteam-membertitle {
+          display: flex;
+
+          h2 {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: "Open sans";
+            font-weight: 400;
+            line-height: 0.7;
+            margin-left: 9px;
+            color: $middle-gray;
+          }
+
+          .field--name-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: "Open sans";
+            line-height: 0.7;
+            margin-left: 2px;
+            color: $gray;
+
+            &::after {
+              content: "/";
+              font-family: "Open sans";
+              margin: 0 3px;
+            }
           }
         }
       }

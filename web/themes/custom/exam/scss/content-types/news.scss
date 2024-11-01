@@ -1,0 +1,128 @@
+@import "../partials";
+
+.node--type-news {
+  &.node--view-mode-teaser {
+    background-color: $white;
+    padding-top: 20px;
+
+    .layout__region {
+      &--first {
+        flex: 0 1 14.6%;
+      }
+
+      &--second {
+        flex: 0 1 85.4%;
+        display: flex;
+        padding-left: 20px;
+        border-left: 1px solid $middle-gray;
+
+        .block-field-blocknodenewscreated {
+          margin-left: auto;
+          font-size: 12px;
+          text-transform: uppercase;
+          font-family: "Open sans";
+          line-height: 0.7;
+          margin-right: 19px;
+        }
+      }
+    }
+
+    .field--name-created {
+      time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .date {
+          &-month {
+            line-height: 0.7;
+            text-transform: uppercase;
+            font-family: "Open sans";
+            font-size: 26px;
+            color: $gray;
+          }
+
+          &-day {
+            font-size: 47px;
+            font-family: "Open sans";
+            font-weight: 600;
+            line-height: 1;
+            color: $blue;
+          }
+
+          &-year {
+            font-size: 14px;
+            font-family: "Open sans";
+            line-height: 1;
+            color: $middle-gray;
+          }
+        }
+      }
+    }
+
+    .field--name-field-news-type {
+      line-height: 0.3;
+
+      a {
+        line-height: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: "Open sans";
+        font-size: 12px;
+        color: $blue;
+      }
+    }
+
+    .layout--twocol-section--25-75 {
+      margin-bottom: 19px;
+    }
+
+    &>.node__content>.layout--onecol {
+      display: flex;
+
+      &>.layout__region--content {
+        flex: 0 1 85.4%;
+        margin-left: auto;
+        padding-left: 19px;
+
+        .field--name-title {
+          font-family: "Open sans";
+          text-transform: uppercase;
+          font-size: 25.5px;
+          line-height: 0.7;
+          color: $gray;
+        }
+
+        .field--name-body {
+          font-size: 11.2px;
+          font-family: "Open sans";
+          text-transform: uppercase;
+          margin-top: 11px;
+          font-weight: 600;
+          letter-spacing: -0.85px;
+          word-spacing: 0.8px;
+          line-height: 1.28;
+          color: $dark-gray;
+        }
+
+        .field--name-extra-field-readmore-extrafield {
+          .readmore-extrafield {
+            display: flex;
+
+            a {
+              text-transform: uppercase;
+              font-family: "Open sans";
+              text-decoration: none;
+              color: $white;
+              background-color: $gray;
+              padding: 5px 9px;
+              font-size: 15px;
+              letter-spacing: -0.5px;
+              margin: 13px 21px 21px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
