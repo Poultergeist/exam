@@ -1,0 +1,51 @@
+form#search-api-page-block-form-news-search {
+  padding-top: 18px;
+  padding-bottom: 14px;
+}
+form#search-api-page-block-form-news-search .form-type-search {
+  width: 27.2%;
+  min-width: 200px;
+  position: relative;
+}
+form#search-api-page-block-form-news-search .form-type-search::before {
+  content: "";
+  position: absolute;
+  width: 124%;
+  left: -1%;
+  height: 120%;
+  top: -10%;
+  background-color: #f5f5f5;
+  z-index: -1;
+}
+form#search-api-page-block-form-news-search .form-type-search .form-search {
+  width: 100%;
+  padding: 6px 9px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  font-size: 17.7px;
+}
+form#search-api-page-block-form-news-search .form-type-search .form-search::placeholder {
+  color: #cccccc;
+}
+form#search-api-page-block-form-news-search .form-actions {
+  position: relative;
+  font-family: "Open sans";
+  text-align: center;
+  color: white;
+}
+form#search-api-page-block-form-news-search .form-actions::after {
+  content: "Apply";
+  left: 0;
+  position: absolute;
+  padding: 7px 13px;
+  letter-spacing: -0.4px;
+  pointer-events: none;
+}
+form#search-api-page-block-form-news-search .form-actions .form-submit {
+  color: transparent;
+  padding: 8px 11px;
+  border: 2px solid #6e9bca;
+  border-radius: 3px;
+  background-color: #6e9bca;
+  cursor: pointer;
+}

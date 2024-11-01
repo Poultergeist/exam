@@ -1,0 +1,33 @@
+@import "../partials";
+
+.block-views-blocknews-block-1 {
+  margin-top: 180px;
+
+  &>h2 {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: "Open sans";
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    color: $gray;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid $middle-gray;
+      margin: 0 15px;
+    }
+  }
+
+
+  .view-news {
+    margin-top: 22px;
+  }
+}

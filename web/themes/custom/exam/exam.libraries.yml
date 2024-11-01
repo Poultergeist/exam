@@ -10,6 +10,7 @@ global-styling:
       css/content-types/about.css: {}
       css/content-types/services.css: {}
       css/content-types/team.css: {}
+      css/content-types/news.css: {}
       css/layout/grid-layouts.css: {}
       css/regions/header.css: {}
       css/regions/banner.css: {}
@@ -18,16 +19,19 @@ global-styling:
       css/views/services.css: {}
       css/views/projects.css: {}
       css/views/team.css: {}
+      css/views/news.css: {}
     component:
       css/components/progress-bar.css: {}
       css/components/branding.css: {}
       css/components/project-type.css: {}
       css/components/pager.css: {}
+      css/components/news-search.css: {}
     state:
       css/utilities/utilities.css: {}
 
 progress-bar:
   js:
     js/progress-bar.js: {}
+    js/placeholder-search-news.js: {}
   dependencies:
     - core/jquery

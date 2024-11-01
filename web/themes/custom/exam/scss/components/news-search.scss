@@ -1,0 +1,62 @@
+@import "../partials";
+
+form#search-api-page-block-form-news-search {
+  padding-top: 18px;
+  padding-bottom: 14px;
+
+  .form-type-search {
+    width: 27.2%;
+    min-width: 200px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 124%;
+      left: -1%;
+      height: 120%;
+      top: -10%;
+      background-color: $dark-white;
+      z-index: -1;
+    }
+
+    .form-search {
+      width: 100%;
+      padding: 6px 9px;
+      border: 1px solid $middle-gray;
+      border-radius: 3px;
+      font-size: 17.7px;
+
+      &::placeholder {
+        color: $middle-gray;
+      }
+    }
+  }
+
+
+
+  .form-actions {
+    position: relative;
+    font-family: "Open sans";
+    text-align: center;
+    color: white;
+
+    &::after {
+      content: "Apply";
+      left: 0;
+      position: absolute;
+      padding: 7px 13px;
+      letter-spacing: -0.4px;
+      pointer-events: none;
+    }
+
+    .form-submit {
+      color: transparent;
+      padding: 8px 11px;
+      border: 2px solid $blue;
+      border-radius: 3px;
+      background-color: $blue;
+      cursor: pointer;
+    }
+  }
+}
